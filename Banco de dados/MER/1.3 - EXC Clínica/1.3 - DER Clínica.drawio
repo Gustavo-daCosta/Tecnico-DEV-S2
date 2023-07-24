@@ -1,0 +1,124 @@
+<mxfile host="app.diagrams.net" modified="2023-07-24T20:15:02.042Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="NP5gEq0dB3dfITKcbEVd" version="21.6.5" type="device">
+  <diagram name="Página-1" id="dG00mdZPdMtr62z00cmZ">
+    <mxGraphModel dx="1615" dy="1063" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#000000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="wiHUEbu9_wPqcJig13ah-1" value="Uma clínica veterinária deseja cadastrar os pets que são atendidos em seu local.&#xa;&#xa;- a clínica contém um endereço;&#xa;- os pets deverão ter nome, data de nascimento, tipo de pet;&#xa;- os pets deverão ter raça;&#xa;- os pets deverão ter donos;&#xa;- a clínica deseja cadastrar seus veterinários e todo atendimento de pet será feito por um veterinário;&#xa;&#xa;DML&#xa;&#xa;- cada atendimento deve registrar qual veterinário atendeu, qual pet foi atendido, descrição da consulta e data da consulta&#xa;&#xa;DQL&#xa;&#xa;- listar todos os veterinários (nome e CRMV) de uma clínica (razão social)&#xa;- listar todas as raças que começam com a letra S&#xa;- listar todos os tipos de pet que terminam com a letra O&#xa;- listar todos os pets mostrando os nomes dos seus donos&#xa;- listar todos os atendimentos mostrando o nome do veterinário que atendeu, o nome, a raça e o tipo do pet que foi atendido, o nome do dono do pet e o nome da clínica onde o pet foi atendido" style="text;whiteSpace=wrap;fontColor=#FFFFFF;labelBackgroundColor=none;" vertex="1" parent="1">
+          <mxGeometry x="84" y="6" width="660" height="233" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-79" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="CsGC-FG-fX2qewvNtBGw-75" target="CsGC-FG-fX2qewvNtBGw-78">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-81" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="CsGC-FG-fX2qewvNtBGw-75" target="CsGC-FG-fX2qewvNtBGw-76">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-75" value="Clínica Veterinária" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=none;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="354" y="432" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-76" value="Endereço" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=none;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="368" y="341" width="92" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-87" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="CsGC-FG-fX2qewvNtBGw-78" target="CsGC-FG-fX2qewvNtBGw-83">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-88" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="CsGC-FG-fX2qewvNtBGw-78" target="CsGC-FG-fX2qewvNtBGw-82">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-78" value="Possui" style="rhombus;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=none;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="374" y="558" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-80" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=12;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="389" y="492" width="25" height="26" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-86" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="CsGC-FG-fX2qewvNtBGw-82" target="CsGC-FG-fX2qewvNtBGw-84">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-95" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="CsGC-FG-fX2qewvNtBGw-82" target="CsGC-FG-fX2qewvNtBGw-94">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-96" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="CsGC-FG-fX2qewvNtBGw-82" target="CsGC-FG-fX2qewvNtBGw-92">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-97" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="CsGC-FG-fX2qewvNtBGw-82" target="CsGC-FG-fX2qewvNtBGw-93">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-98" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="CsGC-FG-fX2qewvNtBGw-82" target="CsGC-FG-fX2qewvNtBGw-91">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-82" value="Pet" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=none;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="583" y="709" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-85" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="CsGC-FG-fX2qewvNtBGw-83" target="CsGC-FG-fX2qewvNtBGw-84">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-83" value="Veterinários" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=none;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="125" y="709" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-84" value="Atende" style="rhombus;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=none;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="374" y="699" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-89" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="245" y="739" width="36" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-90" value="N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="547" y="739" width="36" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-102" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="CsGC-FG-fX2qewvNtBGw-91" target="CsGC-FG-fX2qewvNtBGw-101">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-103" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="CsGC-FG-fX2qewvNtBGw-91" target="CsGC-FG-fX2qewvNtBGw-100">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-91" value="Possui" style="rhombus;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=none;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="810" y="699" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-92" value="Data de&lt;br&gt;nascimento&amp;nbsp;" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=none;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="597" y="879" width="92" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-93" value="Tipo de Pet" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=none;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="703" y="823" width="92" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-94" value="Nome" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=none;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="491" y="823" width="92" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-111" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="CsGC-FG-fX2qewvNtBGw-100" target="CsGC-FG-fX2qewvNtBGw-110">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-112" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="CsGC-FG-fX2qewvNtBGw-100" target="CsGC-FG-fX2qewvNtBGw-108">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-113" style="edgeStyle=orthogonalEdgeStyle;shape=connector;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=default;strokeColor=default;fontFamily=Helvetica;fontSize=12;fontColor=default;endArrow=none;endFill=0;" edge="1" parent="1" source="CsGC-FG-fX2qewvNtBGw-100" target="CsGC-FG-fX2qewvNtBGw-109">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-100" value="Dono" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=none;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="961" y="779" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-101" value="Raça" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=none;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="961" y="639" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-104" value="N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="984" y="749" width="36" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-105" value="N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="607" y="679" width="36" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-106" value="N" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="184" y="679" width="36" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-107" value="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=12;fontFamily=Helvetica;fontColor=default;" vertex="1" parent="1">
+          <mxGeometry x="984" y="699" width="36" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-108" value="Nome" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=none;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="869" y="876" width="92" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-109" value="Telefone" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=none;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="1081" y="876" width="92" height="56" as="geometry" />
+        </mxCell>
+        <mxCell id="CsGC-FG-fX2qewvNtBGw-110" value="Endereço" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=none;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="975" y="942" width="92" height="56" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
