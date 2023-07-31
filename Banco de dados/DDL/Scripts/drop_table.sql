@@ -1,0 +1,5 @@
+-- DROP TABLE/DATABASE
+
+DROP TABLE Empresas;
+
+DROP DATABASE BancoTarde;
