@@ -1,0 +1,50 @@
+-- DDL - Criar bancos e tabelas
+
+-- Criar o banco de dados
+CREATE DATABASE Exercicio_1_3;
+
+-- Usar o banco criado
+USE Exercicio_1_3;
+
+-- Criar tabelas do banco
+CREATE TABLE Clinica (
+	IdClinica INT PRIMARY KEY IDENTITY,
+	Endereco VARCHAR(20),
+);
+
+CREATE TABLE Veterinario (
+	IdVeterinario INT PRIMARY KEY IDENTITY,
+	IdClinica INT FOREIGN KEY REFERENCES Clinica(IdClinica) NOT NULL,
+	Nome VARCHAR(30) NOT NULL,
+	CRMV VARCHAR(20) NOT NULL UNIQUE,
+);
+
+CREATE TABLE TipoPet (
+	IdTipoPet INT PRIMARY KEY IDENTITY,
+	Descricao VARCHAR(100) NOT NULL,
+);
+
+CREATE TABLE Raca (
+	IdRaca INT PRIMARY KEY IDENTITY,
+	Descricao VARCHAR(100) NOT NULL,
+);
+
+CREATE TABLE Dono (
+	IdDono INT PRIMARY KEY IDENTITY,
+	Nome VARCHAR(30) NOT NULL,
+);
+
+CREATE TABLE Pet (
+	IdPet INT PRIMARY KEY IDENTITY,
+	IdTipoPet INT FOREIGN KEY REFERENCES TipoPet(IdTipoPet) NOT NULL,
+	IdRaca INT FOREIGN KEY REFERENCES Raca(IdRaca) NOT NULL,
+	IdDono INT FOREIGN KEY REFERENCES Dono(IdDono) NOT NULL,
+	Nome VARCHAR(30) NOT NULL,
+	DataNascimento DATE NOT NULL,
+);
+
+CREATE TABLE Atendimentos (
+	IdAtendimento INT PRIMARY KEY IDENTITY,
+	IdVeterinario INT FOREIGN KEY REFERENCES Veterinario(IdVeterinario) NOT NULL,
+	IdPet INT FOREIGN KEY REFERENCES Pet(IdPet) NOT NULL,
+);
