@@ -42,4 +42,6 @@ CREATE TABLE Aluguel (
 	IdVeiculo INT FOREIGN KEY REFERENCES Veiculo(IdVeiculo) NOT NULL,
 	IdCliente INT FOREIGN KEY REFERENCES Cliente(IdCliente) NOT NULL,
 	Protocolo VARCHAR(20) NOT NULL,
+	DataInicio DATE NOT NULL,
+	DataFim DATE NOT NULL,
 );

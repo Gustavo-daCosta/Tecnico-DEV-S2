@@ -1,7 +1,7 @@
 -- DML - Inserir dados nas tabelas
 
 -- Usar o banco criado
-USE Exercicio_1_0;
+USE Exercicio_1_2;
 
 -- Inserir dados na tabela
 INSERT INTO Empresa(Nome, CNPJ)
@@ -19,5 +19,5 @@ VALUES ('Onix'), ('Argo')
 INSERT INTO Veiculo(IdEmpresa, IdModelo, IdMarca, Placa)
 VALUES (1, 2, 2, '1AS234G'), (1, 1, 1, 'A126HK7')
 
-INSERT INTO Aluguel(IdVeiculo, IdCliente, Protocolo)
-VALUES (2, 1, '138415568'), (1, 2, '1681358466')
+INSERT INTO Aluguel(IdVeiculo, IdCliente, Protocolo, DataInicio, DataFim)
+VALUES (2, 1, '1384155628', '2023-08-01', '2023-08-05'), (1, 2, '1681358466', '2023-07-15', '2023-08-15')
