@@ -9,7 +9,8 @@ USE Exercicio_1_3;
 -- Criar tabelas do banco
 CREATE TABLE Clinica (
 	IdClinica INT PRIMARY KEY IDENTITY,
-	Endereco VARCHAR(20),
+	Nome VARCHAR(20) NOT NULL,
+	Endereco VARCHAR(20) NOT NULL,
 );
 
 CREATE TABLE Veterinario (
@@ -21,12 +22,12 @@ CREATE TABLE Veterinario (
 
 CREATE TABLE TipoPet (
 	IdTipoPet INT PRIMARY KEY IDENTITY,
-	Descricao VARCHAR(100) NOT NULL,
+	Descricao VARCHAR(100) NOT NULL UNIQUE,
 );
 
 CREATE TABLE Raca (
 	IdRaca INT PRIMARY KEY IDENTITY,
-	Descricao VARCHAR(100) NOT NULL,
+	Descricao VARCHAR(100) NOT NULL UNIQUE,
 );
 
 CREATE TABLE Dono (
@@ -45,6 +46,7 @@ CREATE TABLE Pet (
 
 CREATE TABLE Atendimentos (
 	IdAtendimento INT PRIMARY KEY IDENTITY,
+	IdClinica INT FOREIGN KEY REFERENCES Clinica(IdClinica) NOT NULL,
 	IdVeterinario INT FOREIGN KEY REFERENCES Veterinario(IdVeterinario) NOT NULL,
 	IdPet INT FOREIGN KEY REFERENCES Pet(IdPet) NOT NULL,
 );
