@@ -27,7 +27,38 @@ namespace webapi.filmes.tarde.Repositories
 
         public GeneroDomain BuscarPorId(int id)
         {
-            throw new NotImplementedException();
+            GeneroDomain? generoBuscado;
+            bool objetoEncontrado = false;
+
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                string queryFindById = "SELECT IdGenero, Nome FROM Genero";
+                SqlDataReader reader;
+                con.Open();
+
+
+                using (SqlCommand command = new SqlCommand(queryFindById, con))
+                {
+                    reader = command.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        if (Convert.ToInt32(reader[0]) == id)
+                        {
+                            generoBuscado = new GeneroDomain()
+                            {
+                                IdGenero = Convert.ToInt32(reader[0]),
+                                Nome = reader[1].ToString(),
+                            };
+                            objetoEncontrado = true;
+                            break;
+                        } else
+                        {
+                            throw new NotImplementedException();
+                        }
+                    }
+                }
+            }
+            return generoBuscado;
         }
 
         public void Cadastrar(GeneroDomain novoGenero)
