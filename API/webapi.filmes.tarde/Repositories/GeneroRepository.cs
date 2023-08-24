@@ -27,12 +27,15 @@ namespace webapi.filmes.tarde.Repositories
 
         public GeneroDomain BuscarPorId(int id)
         {
-            GeneroDomain? generoBuscado;
-            bool objetoEncontrado = false;
+            GeneroDomain generoBuscado = new GeneroDomain()
+            {
+                IdGenero = id,
+                Nome = "ERRO: GÊNERO NÃO ENCONTRADO"
+            };
 
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                string queryFindById = "SELECT IdGenero, Nome FROM Genero";
+                string queryFindById = $"SELECT IdGenero, Nome FROM Genero WHERE Genero.IdGenero LIKE {id}";
                 SqlDataReader reader;
                 con.Open();
 
@@ -42,28 +45,39 @@ namespace webapi.filmes.tarde.Repositories
                     reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        if (Convert.ToInt32(reader[0]) == id)
+                        generoBuscado = new GeneroDomain()
                         {
-                            generoBuscado = new GeneroDomain()
-                            {
-                                IdGenero = Convert.ToInt32(reader[0]),
-                                Nome = reader[1].ToString(),
-                            };
-                            objetoEncontrado = true;
-                            break;
-                        } else
-                        {
-                            throw new NotImplementedException();
-                        }
+                            IdGenero = Convert.ToInt32(reader[0]),
+                            Nome = reader[1].ToString(),
+                        };
                     }
                 }
             }
             return generoBuscado;
         }
 
+        /// <summary>
+        /// Cadastrar um novo gênero
+        /// </summary>
+        /// <param name="novoGenero">Objeto com as informações que serão cadastradas</param>
         public void Cadastrar(GeneroDomain novoGenero)
         {
-            throw new NotImplementedException();
+            // Declara a SqlConnection passando a string de conexão como parâmetro
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                // Declara a instrução a ser executada
+                string queryInsert = $"INSERT INTO Genero(Nome) VALUES ('{novoGenero.Nome}')";
+
+                // Declara o SqlCommand passando a query que será executada e a conexão
+                using (SqlCommand cmd = new SqlCommand(queryInsert, con))
+                {
+                    // Abre a conexão com o banco de dados
+                    con.Open();
+
+                    // Executa a query
+                    cmd.ExecuteNonQuery(); // Somente para executar INSERT, UPDATE e DELETE (não retorna dados)
+                }
+            }
         }
 
         public void Deletar(int id)
