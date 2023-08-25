@@ -17,7 +17,10 @@ namespace webapi.filmes.tarde.Repositories
         private string StringConexao = "Data Source = NOTE11-S14; Initial Catalog = Filmes_Tarde; User Id = sa; Pwd = Senai@134";
         public void AtualizarIdCorpo(GeneroDomain genero)
         {
-            throw new NotImplementedException();
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+
+            }
         }
 
         public void AtualizarIdUrl(int id, GeneroDomain genero)
@@ -38,7 +41,6 @@ namespace webapi.filmes.tarde.Repositories
                 string queryFindById = $"SELECT IdGenero, Nome FROM Genero WHERE Genero.IdGenero LIKE {id}";
                 SqlDataReader reader;
                 con.Open();
-
 
                 using (SqlCommand command = new SqlCommand(queryFindById, con))
                 {
@@ -66,7 +68,32 @@ namespace webapi.filmes.tarde.Repositories
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 // Declara a instrução a ser executada
-                string queryInsert = $"INSERT INTO Genero(Nome) VALUES ('{novoGenero.Nome}')";
+                string queryInsert = $"INSERT INTO Genero(Nome) VALUES (@Nome)";
+
+                // Declara o SqlCommand passando a query que será executada e a conexão
+                using (SqlCommand cmd = new SqlCommand(queryInsert, con))
+                {
+                    cmd.Parameters.AddWithValue("@Nome", novoGenero.Nome);
+
+                    // Abre a conexão com o banco de dados
+                    con.Open();
+
+                    // Executa a query
+                    cmd.ExecuteNonQuery(); // Somente para executar INSERT, UPDATE e DELETE (não retorna dados)
+                }
+            }
+        }
+
+        /// <summary>
+        /// Deletar um gênero existente
+        /// </summary>
+        /// <param name="id">Id do gênero a ser deletado</param>
+        public void Deletar(int id)
+        {
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                // Declara a instrução a ser executada
+                string queryInsert = $"DELETE FROM Genero WHERE Genero.IdGenero LIKE {id}";
 
                 // Declara o SqlCommand passando a query que será executada e a conexão
                 using (SqlCommand cmd = new SqlCommand(queryInsert, con))
@@ -78,11 +105,6 @@ namespace webapi.filmes.tarde.Repositories
                     cmd.ExecuteNonQuery(); // Somente para executar INSERT, UPDATE e DELETE (não retorna dados)
                 }
             }
-        }
-
-        public void Deletar(int id)
-        {
-            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -127,5 +149,26 @@ namespace webapi.filmes.tarde.Repositories
             }
             return listaGeneros;
         }
+
+        /*
+        private dynamic Conexao(string query, bool needReader = false, Action teste)
+        {
+            using (SqlConnection con = new SqlConnection(StringConexao))
+            {
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(query, con))
+                {
+                    if (needReader)
+                    {
+                        SqlDataReader reader  = cmd.ExecuteReader();
+                        while (reader.Read())
+                        {
+                            
+                        }
+                    }
+                }
+            }
+        }*/
     }
 }
