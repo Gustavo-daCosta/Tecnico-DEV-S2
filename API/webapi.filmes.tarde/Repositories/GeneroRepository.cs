@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using Microsoft.AspNetCore.Http.HttpResults;
+using System.Data.SqlClient;
 using webapi.filmes.tarde.Domains;
 using webapi.filmes.tarde.Interfaces;
 
@@ -15,48 +16,38 @@ namespace webapi.filmes.tarde.Repositories
         ///     - SqlServer: User Id = sa; Pwd = Senha
         /// </summary>
         private string StringConexao = "Data Source = NOTE11-S14; Initial Catalog = Filmes_Tarde; User Id = sa; Pwd = Senai@134";
-        public void AtualizarIdCorpo(GeneroDomain genero)
+
+        /// <summary>
+        /// Atualiza as informações de um gênero
+        /// </summary>
+        /// <param name="genero">Gênero a ser atualizado</param>
+        public void Atualizar(GeneroDomain genero)
         {
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
+                string queryUpdate = $"UPDATE Genero SET Nome = @Nome WHERE IdGenero LIKE {genero.IdGenero}";
 
-            }
-        }
-
-        public void AtualizarIdUrl(int id, GeneroDomain genero)
-        {
-            throw new NotImplementedException();
-        }
-
-        public GeneroDomain BuscarPorId(int id)
-        {
-            GeneroDomain generoBuscado = new GeneroDomain()
-            {
-                IdGenero = id,
-                Nome = "ERRO: GÊNERO NÃO ENCONTRADO"
-            };
-
-            using (SqlConnection con = new SqlConnection(StringConexao))
-            {
-                string queryFindById = $"SELECT IdGenero, Nome FROM Genero WHERE Genero.IdGenero LIKE {id}";
-                SqlDataReader reader;
-                con.Open();
-
-                using (SqlCommand command = new SqlCommand(queryFindById, con))
+                using (SqlCommand cmd = new SqlCommand(queryUpdate, con))
                 {
-                    reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        generoBuscado = new GeneroDomain()
-                        {
-                            IdGenero = Convert.ToInt32(reader[0]),
-                            Nome = reader[1].ToString(),
-                        };
-                    }
+                    cmd.Parameters.AddWithValue("@Nome", genero.Nome);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
                 }
             }
-            return generoBuscado;
         }
+
+        /// <summary>
+        /// Buscar um gênero a partir de um id
+        /// </summary>
+        /// <param name="id">Id do gênero a ser buscado</param>
+        /// <returns>Gênero que foi buscado</returns>
+        public GeneroDomain? BuscarPorId(int id) => ListarTodos().FirstOrDefault(genero => genero.IdGenero == id);
+
+        //{
+        //    List<GeneroDomain> listaGeneros = ListarTodos();
+        //    GeneroDomain? generoBuscado = listaGeneros.FirstOrDefault(genero => genero.IdGenero == id);
+        //    return generoBuscado;
+        //}
 
         /// <summary>
         /// Cadastrar um novo gênero

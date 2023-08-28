@@ -32,24 +32,6 @@ namespace webapi.filmes.tarde.Controllers
         /// </summary>
         public GeneroController() => _generoRepository = new GeneroRepository();
 
-        [HttpGet]
-        public IActionResult Get()
-        {
-            try
-            {
-                List<GeneroDomain> listaGeneros = _generoRepository.ListarTodos();
-
-                // Retorna o status code 200 ok e a lista de gêneros no formato JSON
-                return StatusCode(200, listaGeneros);
-                //return Ok(listaGeneros);
-            }
-            catch (Exception error)
-            {
-                // Retorna um status code 400 - BadRequest e a mensagem de erro
-                return BadRequest(error.Message);
-            }
-        }
-
         /// <summary>
         /// Endpoint que acessa o método de listar os gêneros
         /// </summary>
@@ -85,7 +67,7 @@ namespace webapi.filmes.tarde.Controllers
             {
                 GeneroDomain genero = _generoRepository.BuscarPorId(id);
 
-                return StatusCode(200, genero);
+                return genero == null ? NotFound("O gênero buscado não foi encontrado") : StatusCode(200, genero);
             }
             catch (Exception ex)
             {
@@ -128,6 +110,40 @@ namespace webapi.filmes.tarde.Controllers
                 _generoRepository.Deletar(id);
 
                 return StatusCode(204, id);
+            }
+            catch (Exception error)
+            {
+                return BadRequest(error.Message);
+            }
+        }
+
+        [HttpPut]
+        [Route("AtualizarIdCorpo")]
+        public IActionResult PutIdBody(GeneroDomain genero)
+        {
+            try
+            {
+                _generoRepository.Atualizar(genero);
+
+                return StatusCode(200);
+            }
+            catch (Exception error)
+            {
+                return BadRequest(error.Message);
+            }
+        }
+
+        [HttpPut("AtualizarIdURL/{id}")]
+        public IActionResult PutIdUrl(int id, string nome)
+        {
+            try
+            {
+                GeneroDomain genero = _generoRepository.BuscarPorId(id);
+                genero.Nome = nome;
+
+                _generoRepository.Atualizar(genero);
+
+                return StatusCode(200);
             }
             catch (Exception error)
             {
