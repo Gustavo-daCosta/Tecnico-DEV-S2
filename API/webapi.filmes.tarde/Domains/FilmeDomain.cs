@@ -1,4 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using webapi.filmes.tarde.Controllers;
+using webapi.filmes.tarde.Interfaces;
+using webapi.filmes.tarde.Repositories;
 
 namespace webapi.filmes.tarde.Domains
 {
@@ -10,7 +13,8 @@ namespace webapi.filmes.tarde.Domains
         public int IdFilme { get; set; }
         [Required(ErrorMessage = "É obrigatória a escolha de um gênero para o filme")]
         public int IdGenero { get; set; }
-        public GeneroDomain? Genero { get; set; }
+
+        public GeneroDomain Genero { get; set; }
 
         [Required(ErrorMessage = "O tiítulo do filme é obrigatório")]
         [StringLength(50)]

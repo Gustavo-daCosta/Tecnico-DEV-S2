@@ -84,10 +84,10 @@ namespace webapi.filmes.tarde.Repositories
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
                 // Declara a instrução a ser executada
-                string queryInsert = $"DELETE FROM Genero WHERE Genero.IdGenero LIKE {id}";
+                string queryDelete = $"DELETE FROM Genero WHERE Genero.IdGenero LIKE {id}";
 
                 // Declara o SqlCommand passando a query que será executada e a conexão
-                using (SqlCommand cmd = new SqlCommand(queryInsert, con))
+                using (SqlCommand cmd = new SqlCommand(queryDelete, con))
                 {
                     // Abre a conexão com o banco de dados
                     con.Open();
