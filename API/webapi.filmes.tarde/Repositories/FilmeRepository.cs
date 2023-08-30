@@ -4,6 +4,9 @@ using webapi.filmes.tarde.Interfaces;
 
 namespace webapi.filmes.tarde.Repositories
 {
+    /// <summary>
+    /// Classe referente a implementação das calsses da entidade Filme
+    /// </summary>
     public class FilmeRepository : IFilmeRepository
     {
         /// <summary>

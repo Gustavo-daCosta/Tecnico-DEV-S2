@@ -130,12 +130,7 @@ namespace webapi.filmes.tarde.Controllers
         {
             try
             {
-                FilmeDomain filme = new FilmeDomain()
-                {
-                    IdFilme = idFilme,
-                    IdGenero = idGenero,
-                    Titulo = tituloFilme,
-                };
+                _filmeRepository.BuscarPorId(filme.IdFilme);
 
                 _filmeRepository.Atualizar(filme);
 
@@ -154,17 +149,23 @@ namespace webapi.filmes.tarde.Controllers
         /// <param name="titulo">Novo título do filme</param>
         /// <returns>Status code</returns>
         [HttpPut("AtualizarIdURL/{id}")]
-        public IActionResult PutIdUrl(int id, string titulo)
+        public IActionResult PutIdUrl(int id, FilmeDomain filme)
         {
             try
             {
+                FilmeDomain filmeBuscado = _filmeRepository.BuscarPorId(id);
 
-                FilmeDomain filme = _filmeRepository.BuscarPorId(id);
-                filme.Titulo = titulo;
+                if (filmeBuscado != null)
+                {
+                    filme.IdFilme = id;
+                    filme.IdGenero = filmeBuscado.IdGenero;
+                    _filmeRepository.Atualizar(filme);
+                    return StatusCode(200);
+                } else
+                {
+                    return NotFound($"O ID {filme.IdFilme} não corresponde a nenhum filme.");
+                }
 
-                _filmeRepository.Atualizar(filme);
-
-                return StatusCode(200);
             }
             catch (Exception error)
             {

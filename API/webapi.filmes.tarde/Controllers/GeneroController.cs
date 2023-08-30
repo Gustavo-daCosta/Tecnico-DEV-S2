@@ -107,9 +107,16 @@ namespace webapi.filmes.tarde.Controllers
         {
             try
             {
-                _generoRepository.Deletar(id);
+                GeneroDomain genero = _generoRepository.BuscarPorId(id);
 
-                return StatusCode(204, id);
+                if (genero != null)
+                {
+                    _generoRepository.Deletar(id);
+                    return StatusCode(204, id);
+                } else
+                {
+                    return NotFound("O gênero a ser deletado não foi encontrado.");
+                }
             }
             catch (Exception error)
             {
@@ -123,9 +130,17 @@ namespace webapi.filmes.tarde.Controllers
         {
             try
             {
-                _generoRepository.Atualizar(genero);
+                GeneroDomain generoBuscado = _generoRepository.BuscarPorId(genero.IdGenero);
 
-                return StatusCode(200);
+                if (generoBuscado != null)
+                {
+                    _generoRepository.Atualizar(genero);
+                    return StatusCode(200, genero);
+                }
+                else
+                {
+                    return NotFound($"O ID {genero.IdGenero} não corresponde a nenhum gênero.");
+                }
             }
             catch (Exception error)
             {
@@ -134,16 +149,21 @@ namespace webapi.filmes.tarde.Controllers
         }
 
         [HttpPut("AtualizarIdURL/{id}")]
-        public IActionResult PutIdUrl(int id, string nome)
+        public IActionResult PutIdUrl(int id, GeneroDomain genero)
         {
             try
             {
-                GeneroDomain genero = _generoRepository.BuscarPorId(id);
-                genero.Nome = nome;
+                GeneroDomain generoBuscado = _generoRepository.BuscarPorId(id);
 
-                _generoRepository.Atualizar(genero);
-
-                return StatusCode(200);
+                if (generoBuscado != null)
+                {
+                    genero.IdGenero = id;
+                    _generoRepository.Atualizar(genero);
+                    return StatusCode(200, genero);
+                } else
+                {
+                    return NotFound($"O ID {id} não corresponde a nenhum gênero.");
+                }
             }
             catch (Exception error)
             {

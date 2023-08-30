@@ -5,6 +5,9 @@ using webapi.filmes.tarde.Interfaces;
 
 namespace webapi.filmes.tarde.Repositories
 {
+    /// <summary>
+    /// Classe referente a implementação das classes da entidade Gênero
+    /// </summary>
     public class GeneroRepository : IGeneroRepository
     {
         /// <summary>

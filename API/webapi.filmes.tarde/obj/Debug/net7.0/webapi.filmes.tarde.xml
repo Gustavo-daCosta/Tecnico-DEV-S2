@@ -33,7 +33,7 @@
             </summary>
             <returns>Gênero encontrado e um status code</returns>
         </member>
-        <member name="M:webapi.filmes.tarde.Controllers.FilmeController.Post(System.Int32,System.String)">
+        <member name="M:webapi.filmes.tarde.Controllers.FilmeController.Post(webapi.filmes.tarde.Domains.FilmeDomain)">
             <summary>
             Endpoint que acessa o método de cadastrar filme
             </summary>
@@ -55,7 +55,7 @@
             <param name="filme">Filme a ser atualizado</param>
             <returns>Status code</returns>
         </member>
-        <member name="M:webapi.filmes.tarde.Controllers.FilmeController.PutIdUrl(System.Int32,System.String)">
+        <member name="M:webapi.filmes.tarde.Controllers.FilmeController.PutIdUrl(System.Int32,webapi.filmes.tarde.Domains.FilmeDomain)">
             <summary>
             Endpoint que acessa o método de atualizar filme através da URL
             </summary>
@@ -189,6 +189,11 @@
             </summary>
             <param name="id">Id do objeto a ser deletado</param>
         </member>
+        <member name="T:webapi.filmes.tarde.Repositories.FilmeRepository">
+            <summary>
+            Classe referente a implementação das calsses da entidade Filme
+            </summary>
+        </member>
         <member name="F:webapi.filmes.tarde.Repositories.FilmeRepository.StringConexao">
             <summary>
             String de conexão com o banco de dados que recebe os seguintes parâmetros:
@@ -210,7 +215,7 @@
             <summary>
             Cadastrar um novo filme
             </summary>
-            <param name="novoFilme">Objeto com as informações que serão </param>
+            <param name="novoFilme">Objeto da classe Filme que será cadastrado</param>
         </member>
         <member name="M:webapi.filmes.tarde.Repositories.FilmeRepository.Deletar(System.Int32)">
             <summary>
@@ -223,6 +228,11 @@
             Listar todos os objetos do tipo Filme
             </summary>
             <returns>Lista de objetos do tipo Filme</returns>
+        </member>
+        <member name="T:webapi.filmes.tarde.Repositories.GeneroRepository">
+            <summary>
+            Classe referente a implementação das classes da entidade Gênero
+            </summary>
         </member>
         <member name="F:webapi.filmes.tarde.Repositories.GeneroRepository.StringConexao">
             <summary>
