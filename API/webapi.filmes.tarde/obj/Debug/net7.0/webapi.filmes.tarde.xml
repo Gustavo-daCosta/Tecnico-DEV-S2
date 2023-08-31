@@ -105,6 +105,23 @@
             <param name="id"></param>
             <returns></returns>
         </member>
+        <member name="T:webapi.filmes.tarde.Controllers.UsuarioController">
+            <summary>
+            Define que a rota de uma requisição será no seguinte formato
+            dominio/api/nomeController
+            exemplo: http://localhost:5000/api/Genero
+            </summary>
+        </member>
+        <member name="P:webapi.filmes.tarde.Controllers.UsuarioController._usuarioRepository">
+            <summary>
+            Objeto que irá receber os métodos definidos na interface
+            </summary>
+        </member>
+        <member name="M:webapi.filmes.tarde.Controllers.UsuarioController.#ctor">
+            <summary>
+            Instância do objeto _filmeRepository para que haja referência aos métodos no repositório
+            </summary>
+        </member>
         <member name="T:webapi.filmes.tarde.Domains.FilmeDomain">
             <summary>
             Classe que representa a entidade(tabela) Filme
@@ -113,6 +130,38 @@
         <member name="T:webapi.filmes.tarde.Domains.GeneroDomain">
             <summary>
             Classe que representa a entidade(tabela) Genero
+            </summary>
+        </member>
+        <member name="T:webapi.filmes.tarde.Domains.UsuarioDomain">
+            <summary>
+            Classe que representa a entidade Usuario
+            </summary>
+        </member>
+        <member name="P:webapi.filmes.tarde.Domains.UsuarioDomain.IdUsuario">
+            <summary>
+            Propriedade que representa o Id do Usuário
+            </summary>
+        </member>
+        <member name="P:webapi.filmes.tarde.Domains.UsuarioDomain.Nome">
+            <summary>
+            Propriedade que representa o Nome do Usuário
+            </summary>
+        </member>
+        <member name="P:webapi.filmes.tarde.Domains.UsuarioDomain.Email">
+            <summary>
+            Propriedade que representa o E-mail do Usuário
+            </summary>
+        </member>
+        <member name="P:webapi.filmes.tarde.Domains.UsuarioDomain.Senha">
+            <summary>
+            Propriedade que representa a Senha do Usuário
+            </summary>
+        </member>
+        <member name="P:webapi.filmes.tarde.Domains.UsuarioDomain.Permissao">
+            <summary>
+            Propriedade que representa o Tipo de permissão do usuário, sendo:
+            False = Usuário Comum
+            True = Usuário Administrador
             </summary>
         </member>
         <member name="T:webapi.filmes.tarde.Interfaces.IFilmeRepository">
@@ -188,6 +237,13 @@
             Deletar um gênero existente
             </summary>
             <param name="id">Id do objeto a ser deletado</param>
+        </member>
+        <member name="M:webapi.filmes.tarde.Interfaces.IUsuarioRepository.Login(System.String,System.String)">
+            <summary>
+            Interface do Método para fazer login de um Usuário
+            </summary>
+            <param name="email">E-mail do usuário a ser logado</param>
+            <param name="password">Senha do usuário a ser logado</param>
         </member>
         <member name="T:webapi.filmes.tarde.Repositories.FilmeRepository">
             <summary>
@@ -274,6 +330,29 @@
             Listar todos os objetos do tipo Gênero
             </summary>
             <returns>Lista de objetos do tipo Gênero</returns>
+        </member>
+        <member name="T:webapi.filmes.tarde.Repositories.UsuarioRepository">
+            <summary>
+            Classe referente a implementação das propriedades e métodos da classe Usuario
+            </summary>
+        </member>
+        <member name="F:webapi.filmes.tarde.Repositories.UsuarioRepository.StringConexao">
+            <summary>
+            String de conexão com o banco de dados que recebe os seguintes parâmetros:
+            Data Source: Nome do servidor do banco
+            Initial Catalog: Nome do banco de dados
+            Autenticação:
+                - Windows: Integrated Security = True
+                - SqlServer: User Id = sa; Pwd = Senha
+            </summary>
+        </member>
+        <member name="M:webapi.filmes.tarde.Repositories.UsuarioRepository.Login(System.String,System.String)">
+            <summary>
+            Método para validar login de um Usuário
+            </summary>
+            <param name="email">E-mail do usuário</param>
+            <param name="password">Senha do usuário</param>
+            <returns></returns>
         </member>
     </members>
 </doc>
