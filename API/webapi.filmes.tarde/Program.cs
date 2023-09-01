@@ -5,6 +5,19 @@ var builder = WebApplication.CreateBuilder(args);
 // Adiciona o serviço de controllers
 builder.Services.AddControllers();
 
+// Adiciona o serviço de autenticação JWT Bearer
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultChallengeScheme = "JwtBearer";
+    options.DefaultAuthenticateScheme = "JwtBearer";
+})
+    .AddJwtBearer(options =>
+{
+     
+});
+
+
+
 builder.Services.AddSwaggerGen(options =>
 {
     options.SwaggerDoc("v1", new OpenApiInfo
