@@ -34,7 +34,7 @@ namespace webapi.filmes.tarde.Controllers
         /// </summary>
         public UsuarioController() => _usuarioRepository = new UsuarioRepository();
 
-        [HttpGet]
+        [HttpPost]
         [Route("Login")]
         public IActionResult Login(UsuarioDomain usuario)
         {
@@ -91,8 +91,6 @@ namespace webapi.filmes.tarde.Controllers
                 {
                     token = new JwtSecurityTokenHandler().WriteToken(token)
                 });
-
-                //return usuario == null ? NotFound("O e-mail passado não corresponde a nenhum usuário") : Ok(usuario);
             }
             catch (Exception error)
             {

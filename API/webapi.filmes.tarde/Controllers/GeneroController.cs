@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using webapi.filmes.tarde.Domains;
 using webapi.filmes.tarde.Interfaces;
@@ -61,6 +62,7 @@ namespace webapi.filmes.tarde.Controllers
         /// <returns>Gênero encontrado e um status code</returns>
         [HttpGet]
         [Route("BuscarPorId")]
+        [Authorize]
         public IActionResult GetById(int id) // IActionResult - Espera que se retorne um status code
         {
             try
@@ -81,6 +83,7 @@ namespace webapi.filmes.tarde.Controllers
         /// <returns>Gênero a ser cadastrado e status code</returns>
         [HttpPost]
         [Route("Cadastrar")]
+        [Authorize]
         public IActionResult Post(GeneroDomain novoGenero)
         {
             try
@@ -102,6 +105,7 @@ namespace webapi.filmes.tarde.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("Deletar/{id}")]
+        [Authorize]
         //[Route("Deletar")]
         public IActionResult Delete(int id)
         {
@@ -126,6 +130,7 @@ namespace webapi.filmes.tarde.Controllers
 
         [HttpPut]
         [Route("AtualizarIdCorpo")]
+        [Authorize]
         public IActionResult PutIdBody(GeneroDomain genero)
         {
             try
@@ -149,6 +154,7 @@ namespace webapi.filmes.tarde.Controllers
         }
 
         [HttpPut("AtualizarIdURL/{id}")]
+        [Authorize]
         public IActionResult PutIdUrl(int id, GeneroDomain genero)
         {
             try
