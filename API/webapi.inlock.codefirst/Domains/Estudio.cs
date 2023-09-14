@@ -14,7 +14,6 @@ namespace webapi.inlock.codefirst.Domains
         public string Nome { get; set; } = null!;
 
         // ref.lista de jogos
-        [ForeignKey("Jogos")]
-        public virtual ICollection<Jogo> Jogos { get; set; } = new List<Jogo>();
+        public ICollection<Jogo> Jogos { get; set; } = new List<Jogo>();
     }
 }

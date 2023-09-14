@@ -1,10 +1,12 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace webapi.inlock.codefirst.Domains
 {
     [Table("Usuario")]
+    [Index(nameof(Email), IsUnique = true)] // Especifica que o Email é único
     public class Usuario
     {
         [Key]
@@ -15,9 +17,9 @@ namespace webapi.inlock.codefirst.Domains
         [EmailAddress]
         public string Email { get; set; } = null!;
 
-        [Column(TypeName = "VARCHAR(100)")]
+        [Column(TypeName = "VARCHAR(60)")]
         [Required(ErrorMessage = "O Usuário deve ter uma Senha")]
-        [StringLength(20, MinimumLength = 6, ErrorMessage = "Senha deve conter de 6 a 20 caracteres")]
+        [StringLength(60, MinimumLength = 6, ErrorMessage = "Senha deve conter de 6 a 60 caracteres")]
         public string Senha { get; set; } = null!;
 
         [ForeignKey("TipoUsuario")]
