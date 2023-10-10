@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      html {
+        background-color: lightgrey;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 20vw;
+        height: 100vh;
+      }
+
+      .calc-flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 35px;
+        border-radius: 3%;
+        border: 2px solid grey;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 80%;
+      }
+
+      form button {
+        width: 80%;
+        align-self: center;
+      }
+    </style>
+    <title>Calculadora Simples</title>
+  </head>
+  <body>
+    <div class="calc-flex">
+      <h1>Simple Calculator</h1>
+      <form onsubmit="calcular()">
+        <label for="numero1">Primeiro número</label>
+        <input type="number" id="numero1" placeholder="Primeiro Número" />
+        <br /><br />
+        <label for="numero2">Segundo número</label>
+        <input type="number" id="numero2" placeholder="Segundo Número" />
+        <br /><br />
+        <label for="operacao">Operação</label>
+        <select id="operacao">
+          <option value="">Selecione</option>
+          <option value="+">Somar</option>
+          <option value="-">Subtrair</option>
+          <option value="*">Multiplicar</option>
+          <option value="/">Dividir</option>
+        </select>
+        <p>Resultado: <strong id="resultado">??</strong></p>
+        <button type="submit">Calcular</button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
