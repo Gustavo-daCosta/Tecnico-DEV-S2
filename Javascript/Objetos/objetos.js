@@ -21,5 +21,5 @@ pessoas.push(carlos);
 
 pessoas.forEach((pessoa, index) => {
     console.log(`\nPessoa ${index + 1}: ${pessoa.nome}`);
-    Object.keys(pessoa).forEach((key) => console.log(`${key}: ${pessoa[key]}`))
-})
+    Object.keys(pessoa).forEach((key) => console.log(`${key}: ${pessoa[key]}`));
+});
