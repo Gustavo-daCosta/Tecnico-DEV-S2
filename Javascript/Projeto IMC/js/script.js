@@ -16,13 +16,16 @@ function calcular() {
 
     let now = new Date();
     let usuario = {
-        nome: nome,
+        nome,
         altura: altura.toFixed(2),
         peso: peso.toFixed(0),
         imc: imc.toFixed(2),
         classificacao: classificacao,
         dataCadastro: `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`,
-    }
+    };
+
+    console.log(usuario);
+
     adicionarRegistro(usuario);
 }
 
@@ -50,18 +53,24 @@ function gerarClassificacao(imc) {
 
 function adicionarRegistro(usuario) {
     usuarios.push(usuario);
+    exibirDados();
+}
 
-    document.getElementById('corpo-tabela').innerHTML +=
-    `
-    <tr>
-        <td data-cell="nome">${usuario.nome}</td>
-        <td data-cell="altura">${usuario.altura}</td>
-        <td data-cell="peso">${usuario.peso}</td>
-        <td data-cell="valor do imc">${usuario.imc}</td>
-        <td data-cell="classificação do imc">${usuario.classificacao}</td>
-        <td data-cell="data de cadastro">${usuario.dataCadastro}</td>
-    </tr>
-    `
+function exibirDados() {
+    var listaUsuarios = document.getElementById('corpo-tabela');
+    listaUsuarios.innerHTML = '';
+
+    usuarios.forEach(function (usuario) {
+        var row = document.createElement('tr');
+        var properties = ["nome", "altura", "peso", "imc", "classificacao", "dataCadastro"];
+        properties.forEach(function(property) {
+            var cell = document.createElement('td');
+            cell.setAttribute('data-cell', property);
+            cell.textContent = usuario[property];
+            row.appendChild(cell);
+        });
+        listaUsuarios.appendChild(row);
+    });
 }
 
 function deletarRegistros() {
