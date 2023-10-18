@@ -15,7 +15,7 @@ namespace webapi.inlock.codefirst.Contexts
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server = NOTE11-S14; Database = inlock_games_codeFirst_tarde; User Id = sa; Pwd = Senai@134; TrustServerCertificate = True");
+            optionsBuilder.UseSqlServer("Server = NOTE11-S14; Database = EventPlus; User Id = sa; Pwd = Senai@134; TrustServerCertificate = True");
             base.OnConfiguring(optionsBuilder);
         }
     }

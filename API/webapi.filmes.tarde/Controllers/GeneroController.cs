@@ -21,6 +21,7 @@ namespace webapi.filmes.tarde.Controllers
     /// Define o tipo de resposta da API como JSON
     /// </summary>
     [Produces("application/json")]
+    [Authorize(Roles = "Administrador")]
     public class GeneroController : ControllerBase
     {
         /// <summary>

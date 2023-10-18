@@ -31,6 +31,6 @@ namespace webapi.filmes.tarde.Domains
         /// False = Usuário Comum
         /// True = Usuário Administrador
         /// </summary>
-        public bool Permissao { get; set; }
+        public string Permissao { get; set; }
     }
 }

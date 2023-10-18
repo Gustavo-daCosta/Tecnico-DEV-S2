@@ -29,7 +29,7 @@ namespace webapi.filmes.tarde.Repositories
         {
             using (SqlConnection con = new SqlConnection(StringConexao))
             {
-                string queryValidate = "SELECT IdUsuario, Nome, Email, Senha FROM Usuario WHERE Email LIKE @Email";
+                string queryValidate = "SELECT IdUsuario, Nome, Email, Permissao FROM Usuario WHERE Email LIKE @Email";
                 SqlDataReader reader;
 
                 using (SqlCommand cmd = new SqlCommand(queryValidate, con))
@@ -47,7 +47,7 @@ namespace webapi.filmes.tarde.Repositories
                             IdUsuario = Convert.ToInt32(reader[0]),
                             Nome = reader[1].ToString(),
                             Email = reader[2].ToString(),
-                            Senha = reader[3].ToString(),
+                            Permissao = reader[3].ToString(),
                         };
                         return usuario;
                     }

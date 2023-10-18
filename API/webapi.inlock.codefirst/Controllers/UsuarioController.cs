@@ -35,16 +35,17 @@ namespace webapi.inlock.codefirst.Controllers
 
         // falta implementar o endpoint
         [HttpGet]
-        public IActionResult GetByEmailAndPassword()
+        [Route("Deletar")]
+        public IActionResult GetUser(Usuario usuario)
         {
             try
             {
-
+                _usuarioRepository.BuscarUsuario(usuario.Email, usuario.Senha);
+                return Ok(usuario);
             }
-            catch (Exception)
+            catch (Exception error)
             {
-
-                throw;
+                return BadRequest(error.Message);
             }
         }
     }

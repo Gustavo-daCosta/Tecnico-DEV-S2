@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -24,6 +23,6 @@ namespace webapi.inlock.codefirst.Domains
 
         [ForeignKey("TipoUsuario")]
         [Required(ErrorMessage = "O Usuário deve ter um Tipo de Usuário")]
-        public virtual TipoUsuario? IdTipoUsuarioNavigation { get; set; }
+        public virtual TipoUsuario? TipoUsuario { get; set; }
     }
 }
