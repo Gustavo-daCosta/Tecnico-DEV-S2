@@ -24,9 +24,8 @@ function calcular() {
         dataCadastro: `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} ${now.getHours()}:${now.getMinutes()}`,
     };
 
-    console.log(usuario);
-
     adicionarRegistro(usuario);
+    limparFormulario();
 }
 
 function gerarClassificacao(imc) {
@@ -71,6 +70,12 @@ function exibirDados() {
         });
         listaUsuarios.appendChild(row);
     });
+}
+
+function limparFormulario() {
+    document.getElementById('nome').value = '';
+    document.getElementById('altura').value = '';
+    document.getElementById('peso').value = '';
 }
 
 function deletarRegistros() {
