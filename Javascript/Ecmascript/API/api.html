@@ -14,6 +14,7 @@
         id="cep"
         onblur="chamarApi()"
       />
+      <span id="not-found"></span>
       <br><br>
 
       <label for="endereco">Endereço</label>
@@ -50,23 +51,32 @@
 
         try {
           // resolvida ou fullfilled
+          limparDados();
           const promise = await fetch(url);
           const resposta = await promise.json();
 
-          const { endereco, bairro, cidade, estado, ...resto } = resposta;
-
-          const dadosCep = {
-            endereco,
-            bairro,
-            cidade,
-            estado,
-          }
-
-          console.log(dadosCep);
+          exibirEndereco(resposta);
         } catch (error) {
           // rejected
           console.log("Deu ruim na API");
+
+          document.getElementById('not-found').innerText = 'Cep Inválido!';
+          limparDados()
         }
+      }
+
+      function exibirEndereco(resposta) {
+        document.getElementById('endereco').value = resposta.logradouro;
+        document.getElementById('bairro').value = resposta.bairro;
+        document.getElementById('cidade').value = resposta.localidade;
+        document.getElementById('estado').value = resposta.uf;
+      }
+
+      function limparDados() {
+        document.getElementById('endereco').value = '';
+        document.getElementById('bairro').value = '';
+        document.getElementById('cidade').value = '';
+        document.getElementById('estado').value = '';
       }
     </script>
   </body>

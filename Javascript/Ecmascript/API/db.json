@@ -1,0 +1,12 @@
+{
+  "imc": [
+    {
+      "nome": "Pedro Verdinho",
+      "altura": 1.67,
+      "peso": 90,
+      "imc": 45.9,
+      "situacao": "Tá laskado",
+      "id": 1
+    }
+  ]
+}
