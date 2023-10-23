@@ -1,12 +1,23 @@
 {
-  "imc": [
+  "contatos": [
+    {
+      "cep": "79106110",
+      "endereco": "Rua Dulcinópolis",
+      "bairro": "Jardim Aeroporto",
+      "cidade": "Campo Grande",
+      "estado": "MS",
+      "id": 1
+    },
     {
       "nome": "Pedro Verdinho",
-      "altura": 1.67,
-      "peso": 90,
-      "imc": 45.9,
-      "situacao": "Tá laskado",
-      "id": 1
+      "telefone": "11964781267",
+      "cep": "45602330",
+      "endereco": "Rua Belém",
+      "numeroResidencia": "208",
+      "bairro": "Santo Antônio",
+      "cidade": "Itabuna",
+      "estado": "BA",
+      "id": 3
     }
   ]
 }

@@ -6,19 +6,29 @@
     <title>API com Javascript</title>
   </head>
   <body>
-    <form>
+    <form onsubmit="cadastrar(event)">
       <label for="cep">CEP</label>
       <input
         type="number"
-        placeholder="digite o cep"
+        placeholder="Digite o CEP"
         id="cep"
         onblur="chamarApi()"
       />
       <span id="not-found"></span>
       <br><br>
 
+      <label for="nome">Nome</label>
+      <input type="text" placeholder=" ... " id="nome">
+
+      <label for="telefone">Telefone</label>
+      <input type="number" placeholder=" ... " id="telefone">
+      <br><br>
+
       <label for="endereco">Endereço</label>
       <input type="text" placeholder=" ... " id="endereco" />
+
+      <label for="numero-residencia">Nº</label>
+      <input type="number" placeholder=" ... " id="numero-residencia">
       <br><br>
 
       <label for="bairro">Bairro</label>
@@ -32,9 +42,42 @@
       <label for="estado">Estado</label>
       <input type="text" placeholder=" ... " id="estado" />
       <br><br>
+
+      <button type="submit" onclick="cadastrar">Salvar contato</button>
     </form>
 
     <script>
+      async function cadastrar(event) {
+        event.preventDefault(); // capturar o evento de submit do form
+
+        // pegar os dados do formulário
+        let nome = document.getElementById('nome').value;
+        let telefone = document.getElementById('telefone').value;
+        let cep = document.getElementById('cep').value;
+        let endereco = document.getElementById('endereco').value;
+        let numeroResidencia = document.getElementById('numero-residencia').value;
+        let bairro = document.getElementById('bairro').value;
+        let cidade = document.getElementById('cidade').value;
+        let estado = document.getElementById('estado').value;
+
+        const urlLocal = "http://localhost:3000/contatos";
+        const objDados = { nome, telefone, cep, endereco, numeroResidencia, bairro, cidade, estado };
+
+        try {
+          const promise = await fetch(urlLocal, {
+            // transforma um objeto em um json
+            body: JSON.stringify(objDados),
+            headers: {"Content-Type": "application/json"},
+            method: "post"
+          });
+
+          const retorno = promise.json(); // pega o retorno da API
+          console.log(retorno);
+        } catch (error) {
+          alert("Deu ruim: " + error);
+        }
+      }
+
       // // get
       // const retorno = fetch("https://viacep.com.br/ws/09510200/json/")
       // .then((retorno) => {
@@ -55,17 +98,26 @@
           const promise = await fetch(url);
           const resposta = await promise.json();
 
+          if ('erro' in resposta) {
+            errorReturn();
+            throw new Error();
+          }
+
           exibirEndereco(resposta);
         } catch (error) {
           // rejected
           console.log("Deu ruim na API");
-
-          document.getElementById('not-found').innerText = 'Cep Inválido!';
-          limparDados()
+          errorReturn();
         }
       }
 
+      function errorReturn() {
+        document.getElementById('not-found').innerText = 'Cep Inválido!';
+        limparDados();
+      }
+
       function exibirEndereco(resposta) {
+        document.getElementById('telefone').value = resposta.logradouro;
         document.getElementById('endereco').value = resposta.logradouro;
         document.getElementById('bairro').value = resposta.bairro;
         document.getElementById('cidade').value = resposta.localidade;
