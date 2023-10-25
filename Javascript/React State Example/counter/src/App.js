@@ -1,32 +1,33 @@
 import React, { useState } from 'react';
 
-function Counter() {
-  // Define a piece of state using the 'useState' hook
-  const [count, setCount] = useState(0);
+function Contador() {
+  // Defina o state utilizando o useState (hook)
+  const [contagem, setContagem] = useState(0);
 
-  // Define a function to handle incrementing the count
-  const increment = () => {
-    setCount(count + 1);
+  // Define um método para incrementar a contagem
+  const incremento = () => {
+    setContagem(contagem + 1);
   };
 
-  // Define a function to handle decrementing the count
-  const decrement = () => {
-    setCount(count - 1);
+  // Define um método para decrementar a contagem
+  const decremento = () => {
+    setContagem(contagem - 1);
   };
 
   return (
     <main>
-      <div class="counter">
-        <div class="number">
-          <h1>Count: {count}</h1>
+      <div class="contador">
+        <h1 class="titulo">Contador</h1>
+        <div class="numero">
+          <h1>{contagem}</h1>
         </div>
-        <div class="buttons">
-          <button onClick={decrement}>-</button>
-          <button onClick={increment}>+</button>
+        <div class="botoes">
+          <button onClick={decremento}>-</button>
+          <button onClick={incremento}>+</button>
         </div>
       </div>
     </main>
   );
 }
 
-export default Counter;
+export default Contador;

@@ -19,8 +19,8 @@ code {
 
 main {
   /* border: 50px solid aquamarine; */
-  background: rgb(2,0,36);
-  background: radial-gradient(circle, rgba(0,212,255,1) 0%, rgba(9,9,121,1) 50%, rgba(2,0,36,1) 100%);
+  background: rgb(255,255,255);
+  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
   width: 100%;
   height: 100vb;
   max-width: 100%;
@@ -30,43 +30,73 @@ main {
   flex-direction: column;
 }
 
-.counter {
+.floating-box {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  flex-direction: column;
+  width: 290px;
+  height: 100px;
+  padding: 0 10px;
+  font-size: 24px;
+  position: fixed;
+  top: 10vh;
+  left: 10vw;
+  border-radius: 20px;
+  border: 1px solid white;
+  background-color: black;
+  color: white;
+}
+
+.titulo {
+  color: white;
+  font-size: 48px;
+}
+
+.contador {
   border: 1.5px solid black;
+  background-color: rgba(0, 0, 0, 0.85);
   border-radius: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 50px;
-  width: 27vw;
-  height: 50vh;
+  width: 40vw;
+  height: 80vh;
 }
 
-.number {
+.numero {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 300px;
   height: 150px;
-  font-size: 24px;
+  font-size: 48px;
+  border: 2px solid white;
   background-color: black;
   color: white;
   border-radius: 15px;
 }
 
-.buttons {
+.botoes {
   display: flex;
   gap: 50px;
 }
 
-.buttons > button {
+.botoes button {
   border: none;
-  box-shadow: rgba(149, 157, 165, 0.6) 0px 8px 24px;
-  width: 100px;
-  height: 100px;
+  background-color: white;
+  color: black;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+  width: 160px;
+  height: 160px;
   font-size: 64px;
   border-radius: 50%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-button:last-child { background-color: green; }
-button:first-child { background-color: red; }
+.botoes button:hover {
+  transform: translateY(-5px);
+  box-shadow: rgba(149, 157, 165, 0.6) 0px 8px 24px;
+}
