@@ -1,0 +1,71 @@
+/* Import de fontes */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+/* Reset de propriedades */
+* {
+    box-sizing: border-box;
+    padding: 0; margin: 0;
+}
+
+.flex-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border: 2px solid green;
+    height: 100vh;
+}
+
+.card {
+    width: 250px;
+    height: 250px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    border: 2px solid #821B47;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.card__titulo {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.card__descricao {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.card__conectar {
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    background-color: transparent;
+    border: none;
+    color: #B51D44;
+    cursor: pointer;
+    padding: 5px 7px;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    transition: 0.4s;
+}
+
+.card__conectar:hover {
+    background-color: brown;
+    color: white;
+}
+
+.card__conectar--disabled {
+    color: lightgray;
+    cursor: not-allowed;
+}
+
+.card__conectar--disabled:hover {
+    border: 2px solid brown;
+    background-color: white;
+    color: lightgray;
+}
